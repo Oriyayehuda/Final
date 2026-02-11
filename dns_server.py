@@ -6,7 +6,7 @@ DNS_TABLE = {
 }
 
 
-def run_DNS_server():
+def run_dns_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     server.bind(('127.0.0.1', 53))  # פורט 53 סטנדרטי ל-DNS
 
@@ -23,4 +23,4 @@ def run_DNS_server():
 
 
 if __name__ == "__main__":
-    run_DNS_server()
+    run_dns_server()

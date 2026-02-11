@@ -1,7 +1,7 @@
 import socket
 
 
-def run_DHCP_server():
+def run_dhcp_server():
     # יצירת Socket UDP
     server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     # האזנה לפורט 67 (סטנדרטי ל-DHCP)
@@ -22,4 +22,4 @@ def run_DHCP_server():
 
 
 if __name__ == "__main__":
-    run_DHCP_server()
+    run_dhcp_server()
