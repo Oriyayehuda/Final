@@ -1,0 +1,12 @@
+LOCALHOST = "127.0.0.1"
+DHCP_PORT = 6767
+DNS_PORT  = 8053
+APP_TCP_PORT = 9090
+APP_RUDP_PORT = 59091
+MAX_DGRAM = 60_000  # מתחת ל-64KB
+CHUNK_SIZE = 1024   # לקבצים
+TIMEOUT = 0.4       # שניות
+WINDOW_SIZE = 5
+RUDP_TIMEOUT = 0.3
+LOSS_PROB = 0.1      # 10% איבוד (לבדיקות)
+DELAY_MS = 30        # 30ms השהיה (לבדיקות)

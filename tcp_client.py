@@ -1,9 +1,9 @@
 import socket
 from config import LOCALHOST, APP_TCP_PORT
 
-def main():
+def main(server_ip="127.0.0.1"):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((LOCALHOST, APP_TCP_PORT))
+    s.connect((server_ip, APP_TCP_PORT))
 
     while True:
         cmd = input("> ")

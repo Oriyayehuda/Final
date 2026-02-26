@@ -1,8 +1,8 @@
 import socket, random
-from config import LOCALHOST, DNS_PORT, TIMEOUT
+from config import DNS_PORT, TIMEOUT
 from packets import pack, unpack
 
-def dns_resolve(name: str) -> str:
+def dns_resolve(name: str, dns_ip: str) -> str:
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.settimeout(TIMEOUT)
 
@@ -14,7 +14,7 @@ def dns_resolve(name: str) -> str:
         "name": name
     }
 
-    s.sendto(pack(query), (LOCALHOST, DNS_PORT))
+    s.sendto(pack(query), (dns_ip, DNS_PORT))
     data, _ = s.recvfrom(4096)
     resp = unpack(data)
 
