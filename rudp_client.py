@@ -21,7 +21,6 @@ def rudp_cmd(cmd: str, server_ip="127.0.0.1") -> bytes:
         try:
             data, _ = s.recvfrom(65535)
         except socket.timeout:
-            # just keep listening; server will retransmit
             continue
 
         msg = unpack(data)
@@ -45,7 +44,6 @@ def rudp_cmd(cmd: str, server_ip="127.0.0.1") -> bytes:
         elif msg["type"] == "FIN":
             break
 
-    # rebuild payload
     out = b""
     if end_seq is None:
         return b""

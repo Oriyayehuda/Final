@@ -14,7 +14,7 @@ def main():
     if proto == "tcp":
         tcp_main(app_ip)
     elif proto == "rudp":
-        rudp_main()  # ואם עשית שינוי לקבל server_ip, תעבירי: rudp_main(app_ip)
+        rudp_main()
     else:
         print("Invalid. choose tcp or rudp")
 

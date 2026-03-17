@@ -4,13 +4,11 @@ from packets import pack, unpack
 
 LEASE_SECS = 3600
 
-# DHCP "ברמה בינונית" לסימולציה: מחלק IP אחד (localhost) + DNS-IP
-# אפשר להרחיב לטווח 10.0.0.X אבל אז זה לא יעבוד לסוקט אמיתי על אותו מחשב.
 OFFER_IP = "127.0.0.1"
 DNS_IP   = "127.0.0.1"
 
-# שומרים leases לפי client_id
-leases = {}  # client_id -> {"ip":..., "expires_at":...}
+
+leases = {}
 
 def now():
     return time.time()
@@ -48,7 +46,7 @@ def main():
             if xid is None or not client_id or not req_ip:
                 continue
 
-            # מאשרים רק את ה-IP שהשרת מציע
+
             if req_ip != OFFER_IP:
                 nack = {
                     "type": "DHCP_NACK",
